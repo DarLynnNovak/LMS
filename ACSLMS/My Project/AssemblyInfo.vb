@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("ACSVRCRDCSPLC")> 
+<Assembly: AssemblyTitle("ACSLMS")>
 <Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("ACSVRCRDCCDLC")> 
+<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyProduct("ACSLMS")>
 <Assembly: AssemblyCopyright("Copyright ©  2013")> 
 <Assembly: AssemblyTrademark("")> 
 
@@ -38,4 +38,4 @@ Imports System.Runtime.InteropServices
 '<Assembly: AssemblyFileVersion("4.5.4959.1")> 
 '>>>>>>> company lookup LC change
 
-<Assembly: AssemblyFileVersionAttribute("4.5.6443.8")> 
+<Assembly: AssemblyFileVersionAttribute("4.5.7640.2")> 
