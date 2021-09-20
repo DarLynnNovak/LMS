@@ -1,0 +1,25 @@
+C:\Program Files\Aptify 5.0 - DBProd\ACSLMS.dll
+C:\Program Files\Aptify 5.0 - DBProd\ACSLMS.pdb
+C:\Program Files\Aptify 5.0 - DBProd\ACSLMS.xml
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\Aptify Prod\ACSLMSCourseCreationLC.vbprojAssemblyReference.cache
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\Aptify Prod\ACS.Resources.resources
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\Aptify Prod\ACSLMSCourseCreationLC.vbproj.GenerateResource.cache
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\Aptify Prod\ACSLMSCourseCreationLC.vbproj.CoreCompileInputs.cache
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\Aptify Prod\ACSLMSCourseCreationLC.vbproj.CopyComplete
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\Aptify Prod\ACSLMS.dll
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\Aptify Prod\ACSLMS.xml
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\Aptify Prod\ACSLMS.pdb
+C:\VB Code\ACSLMS\ACSLMS\obj\Aptify Prod\ACSLMS.dll
+C:\VB Code\ACSLMS\ACSLMS\obj\Aptify Prod\ACSLMS.xml
+C:\VB Code\ACSLMS\ACSLMS\obj\Aptify Prod\ACSLMS.pdb
+C:\Program Files\Aptify Async Server\ACSLMS.dll
+C:\Program Files\Aptify Async Server\ACSLMS.pdb
+C:\Program Files\Aptify Async Server\ACSLMS.xml
+C:\Code VB\ACSLMS\ACSLMS\obj\Aptify Prod\ACSLMSCourseCreationLC.vbprojAssemblyReference.cache
+C:\Code VB\ACSLMS\ACSLMS\obj\Aptify Prod\ACS.Resources.resources
+C:\Code VB\ACSLMS\ACSLMS\obj\Aptify Prod\ACSLMSCourseCreationLC.vbproj.GenerateResource.cache
+C:\Code VB\ACSLMS\ACSLMS\obj\Aptify Prod\ACSLMSCourseCreationLC.vbproj.CoreCompileInputs.cache
+C:\Code VB\ACSLMS\ACSLMS\obj\Aptify Prod\ACSLMSCourseCreationLC.vbproj.CopyComplete
+C:\Code VB\ACSLMS\ACSLMS\obj\Aptify Prod\ACSLMS.dll
+C:\Code VB\ACSLMS\ACSLMS\obj\Aptify Prod\ACSLMS.xml
+C:\Code VB\ACSLMS\ACSLMS\obj\Aptify Prod\ACSLMS.pdb

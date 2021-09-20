@@ -1,0 +1,23 @@
+C:\Program Files\Aptify Async Server\ACSLMS.dll
+C:\VB Code\ACSLMS\ACSLMS\obj\Aptify Test 6\ACSLMSCourseCreationLC.vbprojAssemblyReference.cache
+C:\VB Code\ACSLMS\ACSLMS\obj\Aptify Test 6\ACS.Resources.resources
+C:\VB Code\ACSLMS\ACSLMS\obj\Aptify Test 6\ACSLMSCourseCreationLC.vbproj.GenerateResource.cache
+C:\VB Code\ACSLMS\ACSLMS\obj\Aptify Test 6\ACSLMSCourseCreationLC.vbproj.CoreCompileInputs.cache
+C:\VB Code\ACSLMS\ACSLMS\obj\Aptify Test 6\ACSLMSCourseCreationLC.vbproj.CopyComplete
+C:\VB Code\ACSLMS\ACSLMS\obj\Aptify Test 6\ACSLMS.dll
+C:\VB Code\ACSLMS\ACSLMS\obj\Aptify Test 6\ACSLMS.xml
+C:\VB Code\ACSLMS\ACSLMS\obj\Aptify Test 6\ACSLMS.pdb
+C:\Program Files\Aptify Async Server\ACSLMS.pdb
+C:\Program Files\Aptify Async Server\ACSLMS.xml
+C:\Program Files\Aptify 6.0 - Test\ACSLMS.dll
+C:\Program Files\Aptify 6.0 - Test\ACSLMS.pdb
+C:\Program Files\Aptify 6.0 - Test\ACSLMS.xml
+C:\Code VB\ACSLMS\ACSLMS\obj\Aptify Test 6\ACS.Resources.resources
+C:\Code VB\ACSLMS\ACSLMS\obj\Aptify Test 6\ACSLMSCourseCreationLC.vbproj.GenerateResource.cache
+C:\Code VB\ACSLMS\ACSLMS\obj\Aptify Test 6\ACSLMSCourseCreationLC.vbproj.CoreCompileInputs.cache
+C:\Code VB\ACSLMS\ACSLMS\obj\Aptify Test 6\ACSLMSCourseCreationLC.vbproj.CopyComplete
+C:\Code VB\ACSLMS\ACSLMS\obj\Aptify Test 6\ACSLMS.dll
+C:\Code VB\ACSLMS\ACSLMS\obj\Aptify Test 6\ACSLMS.xml
+C:\Code VB\ACSLMS\ACSLMS\obj\Aptify Test 6\ACSLMS.pdb
+C:\Code VB\ACSLMS\ACSLMS\obj\Aptify Test 6\ACS.cloneWizard.resources
+C:\Code VB\ACSLMS\ACSLMS\obj\Aptify Test 6\ACSLMSCourseCreationLC.vbprojAssemblyReference.cache

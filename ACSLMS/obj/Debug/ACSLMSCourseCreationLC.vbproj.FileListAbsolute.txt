@@ -1,0 +1,40 @@
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\Debug\ACS.Resources.resources
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\Debug\ACSLMSCourseCreationLC.vbproj.GenerateResource.Cache
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\Debug\ACSLMS.dll
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\Debug\ACSLMS.xml
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\Debug\ACSLMS.pdb
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\bin\Debug\ACSLMS.dll
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\bin\Debug\ACSLMS.pdb
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\bin\Debug\ACSLMS.xml
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\Debug\ACSLMSCourseCreationLC.vbproj.CoreCompileInputs.cache
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\Debug\ACSLMSCourseCreationLC.vbproj.CopyComplete
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\Debug\ACSLMSCourseCreationLC.vbprojAssemblyReference.cache
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\bin\Debug\Infragistics2.Win.Misc.v8.1.dll
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\bin\Debug\Infragistics2.Win.v8.1.dll
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\bin\Debug\Infragistics2.Win.Misc.v8.1.xml
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\bin\Debug\Infragistics2.Win.v8.1.xml
+C:\Program Files\Aptify 5.0 - DBTest\ACSLMS.dll
+C:\Program Files\Aptify 5.0 - DBTest\ACSLMS.pdb
+C:\Program Files\Aptify 5.0 - DBTest\ACSLMS.xml
+C:\Program Files\Aptify 5.0 - DBStaging\ACSLMS.dll
+C:\Program Files\Aptify 5.0 - DBStaging\ACSLMS.pdb
+C:\Program Files\Aptify 5.0 - DBStaging\ACSLMS.xml
+C:\Program Files\Aptify Async Server\ACSLMS.dll
+C:\Program Files\Aptify Async Server\ACSLMS.pdb
+C:\Program Files\Aptify Async Server\ACSLMS.xml
+C:\VB Code\ACSLMS\ACSLMS\obj\Debug\ACSLMSCourseCreationLC.vbprojAssemblyReference.cache
+C:\VB Code\ACSLMS\ACSLMS\obj\Debug\ACS.Resources.resources
+C:\VB Code\ACSLMS\ACSLMS\obj\Debug\ACSLMSCourseCreationLC.vbproj.GenerateResource.cache
+C:\VB Code\ACSLMS\ACSLMS\obj\Debug\ACSLMSCourseCreationLC.vbproj.CoreCompileInputs.cache
+C:\VB Code\ACSLMS\ACSLMS\obj\Debug\ACSLMSCourseCreationLC.vbproj.CopyComplete
+C:\VB Code\ACSLMS\ACSLMS\obj\Debug\ACSLMS.dll
+C:\VB Code\ACSLMS\ACSLMS\obj\Debug\ACSLMS.xml
+C:\VB Code\ACSLMS\ACSLMS\obj\Debug\ACSLMS.pdb
+C:\Code VB\ACSLMS\ACSLMS\obj\Debug\ACSLMSCourseCreationLC.vbprojAssemblyReference.cache
+C:\Code VB\ACSLMS\ACSLMS\obj\Debug\ACS.Resources.resources
+C:\Code VB\ACSLMS\ACSLMS\obj\Debug\ACSLMSCourseCreationLC.vbproj.GenerateResource.cache
+C:\Code VB\ACSLMS\ACSLMS\obj\Debug\ACSLMSCourseCreationLC.vbproj.CoreCompileInputs.cache
+C:\Code VB\ACSLMS\ACSLMS\obj\Debug\ACSLMSCourseCreationLC.vbproj.CopyComplete
+C:\Code VB\ACSLMS\ACSLMS\obj\Debug\ACSLMS.dll
+C:\Code VB\ACSLMS\ACSLMS\obj\Debug\ACSLMS.xml
+C:\Code VB\ACSLMS\ACSLMS\obj\Debug\ACSLMS.pdb

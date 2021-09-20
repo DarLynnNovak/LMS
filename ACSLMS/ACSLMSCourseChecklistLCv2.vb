@@ -29,6 +29,8 @@ Public Class ACSLMSCourseChecklistLCv2
     Dim courseOwnerSQL As String
     Dim CourseOwnerId As String
     Dim CourseOwner As Integer
+    Dim InstructorId As Long
+    Dim SchoolId As Long
     Dim CourseId As Integer
     Dim UserCreatedId As String
     Dim CourseOwnerPersonId As Integer
@@ -38,6 +40,7 @@ Public Class ACSLMSCourseChecklistLCv2
     Dim CourseCreationProductId As Long
     Dim CourseCreationProductGL As Long
     Dim result As String = "Failed"
+    Dim CCAGE As AptifyGenericEntityBase
 
     Protected Overrides Sub OnFormTemplateLoaded(ByVal e As FormTemplateLoadedEventArgs)
         Try
@@ -176,6 +179,9 @@ Public Class ACSLMSCourseChecklistLCv2
             If ID < 0 Then
                 MsgBox("Please save this record before proceeding")
             Else
+                CCAGE = m_oAppObj.GetEntityObject("ACSLMSCourseCreatorApp", ID)
+                Dim InstId = CInt(CCAGE.GetValue("CourseInstructorId"))
+                Dim SchlId = CInt(CCAGE.GetValue("CourseSchoolId"))
                 sql = "select * from acslmscoursecreatorapp where id = " & ID
                 dt = m_oDA.GetDataTable(sql)
                 If dt.Rows.Count > 0 Then
@@ -195,11 +201,17 @@ Public Class ACSLMSCourseChecklistLCv2
 
                             CourseCreationEventId = dr.Item("EventId")
                         End If
+                        If IsDBNull(dr.Item("CourseInstructorId")) Then
+                            InstructorId = InstId
+                        Else
+                            InstructorId = dr.Item("CourseInstructorId")
+                        End If
 
-                        Dim InstructorId As Long = dr.Item("CourseInstructorId")
-                        Dim SchoolId As Long = dr.Item("CourseSchoolId")
-
-
+                        If IsDBNull(dr.Item("CourseSchoolId")) Then
+                            SchoolId = SchlId
+                        Else
+                            SchoolId = dr.Item("CourseSchoolId")
+                        End If
                         ClassGE = m_oAppObj.GetEntityObject("Classes", -1)
 
 

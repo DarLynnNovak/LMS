@@ -38,4 +38,4 @@ Imports System.Runtime.InteropServices
 '<Assembly: AssemblyFileVersion("4.5.4959.1")> 
 '>>>>>>> company lookup LC change
 
-<Assembly: AssemblyFileVersionAttribute("4.5.7640.2")> 
+<Assembly: AssemblyFileVersionAttribute("4.5.7788.1")> 

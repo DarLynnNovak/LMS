@@ -10,7 +10,7 @@ Public Class ACSLMSEventUserTab
     Private m_oDA As New DataAction
     Dim CourseCreatorAppGE As AptifyGenericEntityBase
 
-
+    Dim ID As Integer
 
 
     Private WithEvents CourseSponsorTB As AptifyTextBox
@@ -147,6 +147,7 @@ Public Class ACSLMSEventUserTab
                 CECreditAmountTB.Visible = False
 
             End If
+            ID = Me.FormTemplateContext.GE.RecordID
             'RequestedClaimingExpDateTB.Value = CourseCreatorAppGE.GetValue("CourseEndDate") 
             CheckCourseOwnerLB()
 
@@ -182,7 +183,21 @@ Public Class ACSLMSEventUserTab
             CECreditAmountTB.Visible = False
         End If
     End Sub
+    Private Sub CourseFormatDCB_ValueChanged(ByVal sender As Object, ByVal OldValue As Object, ByVal NewValue As Object) Handles CourseFormatDCB.ValueChanged
 
+        If OldValue <> NewValue AndAlso NewValue > 0 Then
+
+
+            'CCAGE = m_oAppObj.GetEntityObject("ACSLMSCourseCreatorApp", ID)
+            'CCAGE.SetValue("EventType", NewValue)
+            'CCAGE.Save(True)
+
+            FormTemplateContext.GE.SetValue("EventType", NewValue)
+            FormTemplateContext.GE.Save()
+
+
+        End If
+    End Sub
     Public Sub CheckCourseOwnerLB()
         Dim da As New DataAction
         Dim dt As DataTable

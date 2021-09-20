@@ -12,6 +12,7 @@ Public Class ACSLMSProductTabLCv2
     Private m_oDA As New DataAction
     Dim CourseCreatorAppGE As AptifyGenericEntityBase
     Dim ProductGE As AptifyGenericEntityBase
+
     Private WithEvents ProductCreateButton As AptifyActiveButton
     Private WithEvents ProductUpdateButton As AptifyActiveButton
     Private WithEvents GLCreateButton As AptifyActiveButton
@@ -22,7 +23,7 @@ Public Class ACSLMSProductTabLCv2
     Private WithEvents isBundledProduct As AptifyCheckBox
     Private WithEvents ProductIdDCB As AptifyDataComboBox
     Private WithEvents AccreditationProgCategory As AptifyLinkBox
-
+    Private _parentForm As System.Windows.Forms.Form
     Dim da As New DataAction
     Dim courseCreatorGroupSQL As String
     Dim courseOwnerSQL As String
@@ -95,7 +96,7 @@ Public Class ACSLMSProductTabLCv2
             If AccreditationProgCategory Is Nothing OrElse AccreditationProgCategory.IsDisposed = True Then
                 AccreditationProgCategory = TryCast(GetFormComponent(Me, "ACSLMSCourseCreatorApp Product.AccreditationProgCategory"), AptifyLinkBox)
             End If
-
+            _parentForm = ParentForm
 
             If FormTemplateContext.GE.RecordID > 0 Then
                 ID = FormTemplateContext.GE.RecordID
@@ -173,7 +174,13 @@ Public Class ACSLMSProductTabLCv2
             UpdateCourseCreator()
             ProductGE = m_oAppObj.GetEntityObject("Products", -1)
             If CourseCreationProductId <= 0 Then
-                ProductGE.SetValue("Name", CourseCreationProductName)
+                If Len(CourseCreationProductName) > 100 Then
+                    result = "Failed"
+                    MsgBox("The product name must be 100 characters or less.  The product name is: " & Len(CourseCreationProductName) & " characters")
+                Else
+                    ProductGE.SetValue("Name", CourseCreationProductName)
+                End If
+
                 'ProductGE.SetValue("CategoryID", CInt(thisCategoryId))
                 ProductGE.SetValue("CategoryID", ProductIdDCB.Value)
                 If FormTemplateContext.GE.GetValue("IsBundledProduct") = True Then
@@ -288,7 +295,7 @@ Public Class ACSLMSProductTabLCv2
                     '    Case MsgBoxResult.Yes
                     '        ParentForm.Close()
                     SetCourseCreatorDate()
-                            DisplayEntity()
+                    DisplayEntity()
                     '    Case MsgBoxResult.No
 
                     '    Case Else
@@ -332,7 +339,13 @@ Public Class ACSLMSProductTabLCv2
             'UpdateCourseCreator()
             ProductGE = m_oAppObj.GetEntityObject("Products", CourseCreationProductId)
             If CourseCreationProductId > 0 Then
-                ProductGE.SetValue("Name", CourseCreationProductName)
+                'ProductGE.SetValue("Name", CourseCreationProductName)
+                If Len(CourseCreationProductName) > 100 Then
+                    result = "Failed"
+                    MsgBox("The product name must be 100 characters or less.  The product name is: " & Len(CourseCreationProductName) & " characters")
+                Else
+                    ProductGE.SetValue("Name", CourseCreationProductName)
+                End If
                 'ProductGE.SetValue("CategoryID", CInt(thisCategoryId))
                 ProductGE.SetValue("CategoryID", ProductIdDCB.Value)
                 If FormTemplateContext.GE.GetValue("IsBundledProduct") = True Then
@@ -459,7 +472,7 @@ Public Class ACSLMSProductTabLCv2
                                         .SetValue("Value", dr.Item("ProductFilterRuleValue"))
                                         .SetValue("OperatorID", 1)
                                     End With
-                                    If FilterRuleGE.IsDirty Then 'if the ge has changed then save
+                                    If FilterRuleGE.IsDirty Then 'if the ge has changed then save 
                                         If Not FilterRuleGE.Save(False) Then
                                             Throw New Exception("Problem Saving Filter Rule Record:" & FilterRuleGE.RecordID)
                                             result = "Error"
@@ -583,8 +596,9 @@ Public Class ACSLMSProductTabLCv2
             'ProductAccredSubCatPrefixSql = "select GLAccountReceivable from acsaccreditationprogramcategorymap where id = " & CInt(AccreditationProgCategory.Value)
             'ProductAccredSubCatPrefix = m_oDA.ExecuteScalar(ProductAccredSubCatPrefixSql)
 
-            productGLDetailsSQL = "select case when (select top 1 ACSNavProduct from vwGLAccounts order by id desc) > 80999 then 8" & CourseCreationProductId & " else 80" & CourseCreationProductId & " end"
-            lProductGLAccountDetail = CLng(da.ExecuteScalar(productGLDetailsSQL))
+            productGLDetailsSQL = "8" & CourseCreationProductId
+            'lProductGLAccountDetail = CLng(da.ExecuteScalar(productGLDetailsSQL))
+            lProductGLAccountDetail = productGLDetailsSQL
 
             CourseCostCenterSQL = "select costcenter from vwacslmscoursecreatorapp where id  = " & ID
             CourseCostCenter = da.ExecuteScalar(CourseCostCenterSQL)
@@ -638,19 +652,29 @@ Public Class ACSLMSProductTabLCv2
 
                 End If
                 If result = "Success" Then
+
+                    FormTemplateContext.GE.SetValue("SalesGL", SalesGl)
                     SalesGLTB.Value = SalesGl
                     'With CourseCreatorAppGE
-                    ' CourseCreatorAppGE = m_oAppObj.GetEntityObject("ACSLMSCourseCreatorApp", ID)
-                    FormTemplateContext.GE.SetValue("GLCreated", 1)
-                    FormTemplateContext.GE.SetValue("GLCreatedDate", Now())
+
+
                     If Not FormTemplateContext.GE.Save(False) Then
                         Throw New Exception("Problem Saving Product Record:" & FormTemplateContext.GE.RecordID)
                         result = "Error"
                     Else
-                        MsgBox("Success.  Please be sure to save your changes when closing this form.")
+
+                        CourseCreatorAppGE = m_oAppObj.GetEntityObject("ACSLMSCourseCreatorApp", ID)
+                        CourseCreatorAppGE.SetValue("SalesGL", SalesGl)
+                        CourseCreatorAppGE.SetValue("GLCreated", 1)
+                        CourseCreatorAppGE.SetValue("GLCreatedDate", Now())
+                        CourseCreatorAppGE.Save(True)
+                        _parentForm.Refresh()
                         FormTemplateContext.GE.Save(True)
-                        'CourseCreatorAppGE.CommitTransaction()
+
                         UpdateCourseCreator()
+                        MsgBox("Success.  Please be sure to save your changes when closing this form.")
+                        'CourseCreatorAppGE.CommitTransaction()
+
                     End If
 
                 End If
@@ -753,7 +777,7 @@ Public Class ACSLMSProductTabLCv2
             FormTemplateContext.GE.SetValue("ProductIdCreatedDate", Now())
             FormTemplateContext.GE.SetValue("ProductName", ProductNameTB.Value)
             FormTemplateContext.GE.SetValue("ProductEmailTemplateId", ProductTemplateLB.Value)
-            FormTemplateContext.GE.SetValue("IsBundledProduct", isBundledProduct.Value)
+            'FormTemplateContext.GE.SetValue("IsBundledProduct", isBundledProduct.Value)
             If Not FormTemplateContext.GE.Save(False) Then
                 Throw New Exception("Problem Saving Product Record:" & FormTemplateContext.GE.RecordID)
                 result = "Error"

@@ -206,7 +206,7 @@ Public Class ACSLMSEventTabLCv2
                 CMESACreditsTB.Value = FormTemplateContext.GE.GetValue("SACreditAmount")
                 CESACreditsTB.Value = FormTemplateContext.GE.GetValue("SACECreditAmount")
                 RMCreditsTB.Value = FormTemplateContext.GE.GetValue("RequestedRegMandateAmount")
-                EventTypeDCB.Value = FormTemplateContext.GE.GetValue("EventType")
+                EventTypeDCB.Value = FormTemplateContext.GE.GetValue("CourseFormat")
 
                 RegMandateTypeCB.Value = FormTemplateContext.GE.GetValue("RequestedRegMandateType")
                 'EventTypeDCB.Value = FormTemplateContext.GE.GetValue("CourseFormat")
@@ -249,6 +249,7 @@ Public Class ACSLMSEventTabLCv2
         End If
 
     End Sub
+
     Private Sub EventCreateButton_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles EventCreateButton.Click
         Try
 

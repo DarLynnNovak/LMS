@@ -1,9 +1,9 @@
 ﻿
 'Option Explicit On
 'Option Strict On
-Imports Aptify.Framework.WindowsControls
-Imports Aptify.Framework.DataServices
 Imports Aptify.Framework.BusinessLogic.GenericEntity
+Imports Aptify.Framework.DataServices
+Imports Aptify.Framework.WindowsControls
 
 Public Class ACSLMSCourseTabLCv2
     Inherits FormTemplateLayout
@@ -16,7 +16,7 @@ Public Class ACSLMSCourseTabLCv2
     Private WithEvents CourseNameTB As AptifyTextBox
     Private WithEvents CourseDescTB As AptifyTextBox
     Private WithEvents CourseCategoryLB As AptifyLinkBox
-    Private WithEvents CourseInstuctorLB As AptifyLinkBox
+    Private WithEvents CourseInstructorLB As AptifyLinkBox
     Private WithEvents CourseSchoolLB As AptifyLinkBox
     Private WithEvents isClonedCourse As AptifyCheckBox
     Private WithEvents EthosNodeId As AptifyTextBox
@@ -26,17 +26,10 @@ Public Class ACSLMSCourseTabLCv2
     Private WithEvents CourseEndTime As AptifyTimeControl
     Private WithEvents isBundledProduct As AptifyCheckBox
 
-    Dim getCourseIdSql As String
-    Dim CourseId As Integer
-    Dim da As New DataAction
     Dim CourseGE As AptifyGenericEntityBase
     Dim ID As Long
     Dim CourseCreationCourseId As Long
-    Dim Status As Integer
-    Dim InstructorId As Long
-    Dim SchoolId As Long
-    Dim CourseName As String
-    Dim CourseDescription As String
+    Dim AcsExtId As Long
 
     Dim result As String = "Failed"
 
@@ -44,23 +37,25 @@ Public Class ACSLMSCourseTabLCv2
 
     Protected Overrides Sub OnFormTemplateLoaded(ByVal e As FormTemplateLoadedEventArgs)
         Try
-            If m_oDA.UserCredentials.Server.ToLower = "aptify" Then
-                InstructorId = 3285702
-                SchoolId = 17464
-            End If
-            If m_oDA.UserCredentials.Server.ToLower = "stagingaptify2" Then
+            'If m_oDA.UserCredentials.Server.ToLower = "aptify" Then
+            '    InstructorId = 3285702
+            '    SchoolId = 17464
+            'End If
+            'If m_oDA.UserCredentials.Server.ToLower = "stagingaptify2" Then
 
-            End If
+            'End If
 
-            If m_oDA.UserCredentials.Server.ToLower = "testaptifydb" Then
-                InstructorId = 3285702
-                SchoolId = 17305
-            End If
-            'UpdateCourseCreator()
-            If m_oDA.UserCredentials.Server.ToLower = "testaptify610" Then
-                InstructorId = 3285702
-                SchoolId = 17464
-            End If
+            ''If m_oDA.UserCredentials.Server.ToLower = "testaptifydb" Then
+            ''    InstructorId = 3285702
+            ''    SchoolId = 17305
+            ''End If
+            ''UpdateCourseCreator()
+            'If m_oDA.UserCredentials.Server.ToLower = "testaptify610" Then
+            '    InstructorId = 3285702
+            '    SchoolId = 17464
+            'End If
+            'InstructorId = 3285702
+            'SchoolId = 17464
             'Me.AutoScroll = True
             'Dim newFormTemplateid As Integer = 27183
 
@@ -94,8 +89,8 @@ Public Class ACSLMSCourseTabLCv2
             If CourseCategoryLB Is Nothing OrElse CourseCategoryLB.IsDisposed = True Then
                 CourseCategoryLB = TryCast(GetFormComponent(Me, "ACSLMSCourseCreatorApp Course.CourseCategoryId"), AptifyLinkBox)
             End If
-            If CourseInstuctorLB Is Nothing OrElse CourseInstuctorLB.IsDisposed = True Then
-                CourseInstuctorLB = TryCast(GetFormComponent(Me, "ACSLMSCourseCreatorApp Course.CourseInstructorId"), AptifyLinkBox)
+            If CourseInstructorLB Is Nothing OrElse CourseInstructorLB.IsDisposed = True Then
+                CourseInstructorLB = TryCast(GetFormComponent(Me, "ACS.ACSLMSCourseCreatorApp Course.CourseInstructorId"), AptifyLinkBox)
             End If
             If CourseSchoolLB Is Nothing OrElse CourseSchoolLB.IsDisposed = True Then
                 CourseSchoolLB = TryCast(GetFormComponent(Me, "ACSLMSCourseCreatorApp Course.CourseSchoolId"), AptifyLinkBox)
@@ -141,14 +136,22 @@ Public Class ACSLMSCourseTabLCv2
                     EthosNodeId.Hide()
                 Else
                     EthosNodeId.Show()
+                    AcsExtId = EthosNodeId.Value
                 End If
             Else
                 CourseCreateButton.Visible = False
                 CourseUpdateButton.Visible = False
             End If
+            InstructorId = 3285702
+            SchoolId = 17464
+            If CourseInstructorLB.Value Is "" Or IsDBNull(CourseInstructorLB.Value) Then
+                CourseInstructorLB.Value = InstructorId
 
-            CourseInstuctorLB.Value = InstructorId
-            CourseSchoolLB.Value = SchoolId
+            End If
+            If CourseSchoolLB.Value Is "" Or IsDBNull(CourseSchoolLB.Value) Then
+                CourseSchoolLB.Value = SchoolId
+
+            End If
 
         Catch ex As Exception
             Aptify.Framework.ExceptionManagement.ExceptionManager.Publish(ex)
@@ -229,7 +232,14 @@ Public Class ACSLMSCourseTabLCv2
             UpdateCourseCreator()
             CourseGE = m_oAppObj.GetEntityObject("Courses", -1)
             If CourseCreationCourseId <= 0 Then
-                CourseGE.SetValue("Name", CourseNameTB.Value)
+                'CourseGE.SetValue("Name", CourseNameTB.Value)
+                If Len(CourseNameTB.Value) > 100 Then
+                    result = "Failed"
+                    MsgBox("The course name must be 100 characters or less.  The course name is: " & Len(CourseNameTB.Value) & " characters")
+                Else
+                    CourseGE.SetValue("Name", CourseNameTB.Value)
+                End If
+
                 If Len(CourseDescTB.Value) > 255 Then
                     result = "Failed"
                     CourseGE.SetValue("Description", CourseDescTB.Value)
@@ -247,8 +257,10 @@ Public Class ACSLMSCourseTabLCv2
 
                 CourseGE.SetValue("Status", "Available")
                 CourseGE.SetValue("Units", 0)
-                If Not Me.FormTemplateContext.GE.GetValue("EthosNodeId") Is Nothing Then
-                    CourseGE.SetValue("acsExternalId", EthosNodeId.Value)
+
+                If IsDBNull(AcsExtId) Then
+                Else
+                    CourseGE.SetValue("acsExternalId", AcsExtId)
                 End If
                 CourseGE.SetValue("acsIsLms", 0)
                 If CourseGE.IsDirty Then 'if the ge has changed then save
@@ -268,7 +280,7 @@ Public Class ACSLMSCourseTabLCv2
 
                 courseInstructorGE.SetValue("CourseID", CourseGE.RecordID)
                 courseInstructorGE.SetValue("Sequence", lInstructorSequenceId)
-                courseInstructorGE.SetValue("InstructorID", CourseInstuctorLB.Value)
+                courseInstructorGE.SetValue("InstructorID", CourseInstructorLB.Value)
                 courseInstructorGE.SetValue("Status", "Active")
                 If courseInstructorGE.IsDirty Then
                     If Not courseInstructorGE.Save(False) Then
@@ -301,18 +313,10 @@ Public Class ACSLMSCourseTabLCv2
 
                 End If
                 If result = "Success" Then
-                    'MsgBox(result)
                     CourseIdLB.Value = CourseGE.RecordID
-                    'Select Case MsgBox("Success, Please save this form.  Save? ", MsgBoxStyle.YesNo, "CCA")
-                    '    Case MsgBoxResult.Yes
-                    '        FormTemplateContext.GE.Save()
-
-                    '    Case Else
-                    'End Select
                     MsgBox("Success.  Please be sure to save your changes when closing this form.")
                     SetCourseCreatorDate()
                     DisplayEntity()
-
                 End If
 
             End If
@@ -339,11 +343,15 @@ Public Class ACSLMSCourseTabLCv2
         CourseGE = m_oAppObj.GetEntityObject("Courses", CourseCreationCourseId)
 
         Try
-            Me.CourseIdLB.ClearData()
-
-
+            'Me.CourseIdLB.ClearData()
             If CourseCreationCourseId > 0 Then
-                CourseGE.SetValue("Name", CourseNameTB.Value)
+
+                If Len(CourseNameTB.Value) > 100 Then
+                    result = "Failed"
+                    MsgBox("The course name must be 100 characters or less.  The course name is: " & Len(CourseNameTB.Value) & " characters")
+                Else
+                    CourseGE.SetValue("Name", CourseNameTB.Value)
+                End If
                 If Len(CourseDescTB.Value) > 255 Then
                     result = "Failed"
                     CourseGE.SetValue("Description", CourseDescTB.Value)
@@ -360,8 +368,9 @@ Public Class ACSLMSCourseTabLCv2
                 End If
                 CourseGE.SetValue("Status", "Available")
                 CourseGE.SetValue("Units", 0)
-                If Not Me.FormTemplateContext.GE.GetValue("EthosNodeId") Is Nothing Then
-                    CourseGE.SetValue("acsExternalId", EthosNodeId.Value)
+                If IsDBNull(AcsExtId) Then
+                Else
+                    CourseGE.SetValue("acsExternalId", AcsExtId)
                 End If
                 'If CourseGE.IsDirty Then 'if the ge has changed then save
                 If Not CourseGE.Save(False) Then
@@ -371,14 +380,13 @@ Public Class ACSLMSCourseTabLCv2
                     CourseGE.Save(True)
                     result = "Success"
 
-
                 End If
                 ' End If
                 getInstructorRecordSql = "select id from courseinstructor ci where courseid = " & CourseGE.RecordID
                 lInstructorRecordId = CLng(da.ExecuteScalar(getInstructorRecordSql))
 
                 Dim courseInstructorGE As AptifyGenericEntityBase = m_oAppObj.GetEntityObject("courseinstructors", lInstructorRecordId)
-                courseInstructorGE.SetValue("InstructorID", CourseInstuctorLB.Value)
+                courseInstructorGE.SetValue("InstructorID", CourseInstructorLB.Value)
                 courseInstructorGE.SetValue("Status", "Active")
                 If courseInstructorGE.IsDirty Then
                     If Not courseInstructorGE.Save(False) Then
@@ -410,19 +418,8 @@ Public Class ACSLMSCourseTabLCv2
                 If result = "Success" Then
                     CourseIdLB.Value = CourseGE.RecordID
                     MsgBox("Success.  Please be sure to save your changes when closing this form.")
-
-                    'Select Case MsgBox("Success, Please save this form.  Save? ", MsgBoxStyle.YesNo, "Course Creator")
-                    '    Case MsgBoxResult.Yes
-
-                    '        ParentForm.Close()
                     UpdateCourseCreator()
                     DisplayEntity()
-                    '    Case MsgBoxResult.No
-
-                    '    Case Else
-                    'End Select
-
-
                 End If
 
 
@@ -450,8 +447,8 @@ Public Class ACSLMSCourseTabLCv2
             FormTemplateContext.GE.SetValue("CourseEndDate", CourseEndDate.Value)
             FormTemplateContext.GE.SetValue("CourseStartTime", CourseStartTime.Value)
             FormTemplateContext.GE.SetValue("CourseEndTime", CourseEndTime.Value)
-            FormTemplateContext.GE.SetValue("CourseInstructorId", CourseInstuctorLB.Value)
-            FormTemplateContext.GE.SetValue("CourseSchoolId", CourseSchoolLB.Value)
+            'FormTemplateContext.GE.SetValue("CourseInstructorId", CourseInstuctorLB.Value)
+            'FormTemplateContext.GE.SetValue("CourseSchoolId", CourseSchoolLB.Value)
             If Not FormTemplateContext.GE.Save(False) Then
                 Throw New Exception("Problem Saving Product Record:" & FormTemplateContext.GE.RecordID)
                 result = "Error"
@@ -485,8 +482,8 @@ Public Class ACSLMSCourseTabLCv2
                 FormTemplateContext.GE.SetValue("CourseEndDate", CourseEndDate.Value)
                 FormTemplateContext.GE.SetValue("CourseStartTime", CourseStartTime.Value)
                 FormTemplateContext.GE.SetValue("CourseEndTime", CourseEndTime.Value)
-                FormTemplateContext.GE.SetValue("CourseInstructorId", CourseInstuctorLB.Value)
-                FormTemplateContext.GE.SetValue("CourseSchoolId", CourseSchoolLB.Value)
+                'FormTemplateContext.GE.SetValue("CourseInstructorId", CourseInstuctorLB.Value)
+                'FormTemplateContext.GE.SetValue("CourseSchoolId", CourseSchoolLB.Value)
 
 
                 If Not FormTemplateContext.GE.Save(False) Then

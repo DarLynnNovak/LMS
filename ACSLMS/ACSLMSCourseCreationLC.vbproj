@@ -49,39 +49,6 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Aptify Test|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DefineDebug>true</DefineDebug>
-    <DefineTrace>true</DefineTrace>
-    <OutputPath>..\..\..\Program Files\Aptify Async Server\</OutputPath>
-    <DocumentationFile>ACSLMS.xml</DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Aptify Staging|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DefineDebug>true</DefineDebug>
-    <DefineTrace>true</DefineTrace>
-    <OutputPath>..\..\..\Program Files\Aptify Async Server\</OutputPath>
-    <DocumentationFile>ACSLMS.xml</DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Aptify Prod|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DefineDebug>true</DefineDebug>
-    <DefineTrace>true</DefineTrace>
-    <OutputPath>..\..\..\Program Files\Aptify 5.0 - DBProd\</OutputPath>
-    <DocumentationFile>ACSLMS.xml</DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Aptify Test 6|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
     <DefineDebug>true</DefineDebug>
@@ -98,6 +65,17 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>..\..\..\Program Files\Aptify 6.0 - Prod\</OutputPath>
+    <DocumentationFile>ACSLMS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Aptify Staging 6|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\..\..\Program Files\Aptify 6.0 - Staging\</OutputPath>
     <DocumentationFile>ACSLMS.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DebugType>full</DebugType>
@@ -258,28 +236,13 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ACSLMSBundledProductLC.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ACSLMSCourseChecklistLC.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="ACSLMSCourseChecklistLCv2.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ACSLMSCourseCreationLC.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ACSLMSCourseCreationLCv2.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ACSLMSCourseTabLC.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="ACSLMSCourseTabLCv2.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ACSLMSEventTabLC.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ACSLMSEventTabLCv2.vb">
@@ -288,22 +251,22 @@
     <Compile Include="ACSLMSEventUserTab.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ACSLMSNightlyNotificationPC.vb" />
-    <Compile Include="ACSLMSNotificationsPC.vb" />
-    <Compile Include="ACSLMSProductTabLC.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="ACSLMSNotificationsPCv2.vb" />
     <Compile Include="ACSLMSProductTabLCv2.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ACSLMSSuvinaTabLC.vb">
-      <SubType>UserControl</SubType>
+    <Compile Include="CCACloneWizard.vb" />
+    <Compile Include="cloneWizard.Designer.vb">
+      <DependentUpon>cloneWizard.vb</DependentUpon>
     </Compile>
-    <Compile Include="LMSCourseCreationEPI.vb" />
+    <Compile Include="cloneWizard.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -317,6 +280,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="cloneWizard.resx">
+      <DependentUpon>cloneWizard.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -361,8 +327,8 @@
 if "$(ConfigurationName)" == "Aptify Staging" (call "C:\Program Files\KillAptify\StartAptifyStage.bat")
 if "$(ConfigurationName)" == "Aptify Prod" (call "C:\Program Files\KillAptify\StartAptifyProd.bat")
 if "$(ConfigurationName)" == "Aptify Test 6" (call "C:\Program Files\KillAptify\StartAptifyTest60.bat")
-
-</PostBuildEvent>
+if "$(ConfigurationName)" == "Aptify Staging 6" (call "C:\Program Files\KillAptify\StartAptifyStage60.bat")
+if "$(ConfigurationName)" == "Aptify Prod 6" (call "C:\Program Files\KillAptify\StartAptifyProd60.bat")</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>call "C:\Program Files\KillAptify\KillAptify.bat"</PreBuildEvent>

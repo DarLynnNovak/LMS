@@ -1,0 +1,11 @@
+C:\Program Files\Aptify 5.0 - DBStaging\ACSLMS.dll
+C:\Program Files\Aptify 5.0 - DBStaging\ACSLMS.pdb
+C:\Program Files\Aptify 5.0 - DBStaging\ACSLMS.xml
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\AptifyStaging\ACSLMSCourseCreationLC.vbprojAssemblyReference.cache
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\AptifyStaging\ACS.Resources.resources
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\AptifyStaging\ACSLMSCourseCreationLC.vbproj.GenerateResource.cache
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\AptifyStaging\ACSLMSCourseCreationLC.vbproj.CoreCompileInputs.cache
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\AptifyStaging\ACSLMSCourseCreationLC.vbproj.CopyComplete
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\AptifyStaging\ACSLMS.dll
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\AptifyStaging\ACSLMS.xml
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\AptifyStaging\ACSLMS.pdb

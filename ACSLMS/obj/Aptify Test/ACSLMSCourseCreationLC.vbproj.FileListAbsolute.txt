@@ -1,0 +1,11 @@
+C:\Program Files\Aptify 5.0 - DBTest\ACSLMS.dll
+C:\Program Files\Aptify 5.0 - DBTest\ACSLMS.pdb
+C:\Program Files\Aptify 5.0 - DBTest\ACSLMS.xml
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\Aptify Test\ACSLMSCourseCreationLC.vbprojAssemblyReference.cache
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\Aptify Test\ACS.Resources.resources
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\Aptify Test\ACSLMSCourseCreationLC.vbproj.GenerateResource.cache
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\Aptify Test\ACSLMSCourseCreationLC.vbproj.CoreCompileInputs.cache
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\Aptify Test\ACSLMSCourseCreationLC.vbproj.CopyComplete
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\Aptify Test\ACSLMS.dll
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\Aptify Test\ACSLMS.xml
+H:\Aptify\VBProjects\ACSLMS\ACSLMS\obj\Aptify Test\ACSLMS.pdb
